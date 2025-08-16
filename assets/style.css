@@ -569,8 +569,10 @@ body h2 {
     }
 
     #meilleurFilmCadre img {
-        width: 298px;
+        width: 100%;
+        padding: 0;
         height: 241px;
+        object-fit: cover;
     }
 
     #meilleurFilmCadre h3 {
@@ -664,4 +666,18 @@ body h2 {
     #meilleurFilmCadre h3 {
         font-size: 24px;
     }
+}
+
+@media (max-width: 363px) {
+    #meilleurFilmCadre {
+        height: 500px;
+    }
+
+      #meilleurFilmCadre .bestFilmRight p {
+        font-size: 19px;
+      }
+
+       .modalContent i {
+        right: 20px;
+       }
 }

@@ -28,6 +28,7 @@ const generateBestMovie = (bestMovie) => {
     let bestFilmLeft = document.createElement("div")
     let bestFilmImg = document.createElement("img")
     bestFilmImg.src = bestMovie.image_url
+    bestFilmImg.alt = "Film cover image"
     let bestFilmRight = document.createElement("div")
     bestFilmRight.classList.add("bestFilmRight")
     let bestFilmTitle = document.createElement("h3")
@@ -54,14 +55,14 @@ const generateBestMovie = (bestMovie) => {
 }
 
 generateRatedList = (bestMovies, sectionId) => {
-    const section = document.getElementById(sectionId)
-    generateMovieGrid(section, bestMovies)
+    let sectionConcerned = document.getElementById(sectionId)
+    generateMovieGrid(sectionConcerned, bestMovies)
 }
 
-const generateMovieGrid = (passedDiv, movies) => {
+const generateMovieGrid = (passedSection, movies) => {
     let gridDiv = document.createElement("div")
     gridDiv.classList.add("movieGridDiv")
-    passedDiv.append(gridDiv)
+    passedSection.append(gridDiv)
     for (i = 0; i < movies.length; i++) {
         let currentMovie = movies[i]
         let movieDiv = document.createElement("div")
@@ -77,6 +78,7 @@ const generateMovieGrid = (passedDiv, movies) => {
         let movieImg = document.createElement("img")
         movieImageDiv.classList.add("movieImg")
         movieImg.src = currentMovie.image_url
+        movieImg.alt = "Movie cover image"
         movieImageDiv.append(movieImg)
         movieDiv.append(movieImageDiv)
         let movieDescDiv = document.createElement("div")
@@ -104,10 +106,10 @@ const generateMovieGrid = (passedDiv, movies) => {
     showMoreButton.innerText = "Voir plus"
     showMoreButton.classList.add("showMoreButton")
     showMoreButton.addEventListener("click", (e) => {
-        showMore(e, passedDiv)
+        showMore(e, passedSection)
     })
     showMoreButtonDiv.appendChild(showMoreButton)
-    passedDiv.append(showMoreButtonDiv)
+    passedSection.append(showMoreButtonDiv)
 }
 
 const showMore = (e, passedDiv) => {
@@ -349,6 +351,7 @@ const generateModalContent = (modalContent, movieInfo) => {
     modalContent.append(description)
     let imageMovie = document.createElement("img")
     imageMovie.src = movieInfo.image_url
+    imageMovie.alt = "Movie cover image"
     modalContent.appendChild(imageMovie)
     let actorsDiv = document.createElement("div")
     actorsDiv.className = "actorsDiv"

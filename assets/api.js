@@ -7,7 +7,6 @@ export const generateParams = (page_size_num, genre_string) => {
     const newParams = new URLSearchParams();
     newParams.append("sort_by", "-votes");
     newParams.append("page_size", page_size_num);
-    newParams.append("lang_contains", "English");
     newParams.append("genre", genre_string);
     const urlParams = newParams.toString()
     return urlParams
